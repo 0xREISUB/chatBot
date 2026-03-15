@@ -1,0 +1,228 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "merhaba", "selam", "günaydın", "iyi akşamlar", 
+        "iyi geceler", "hey", "merhaba bot", "selam bot",
+        "merhba", "mrb", "slm", "günaydınlar", "tünaydın"
+      ],
+      "responses": [
+        "Merhaba! Size nasıl yardımcı olabilirim?",
+        "Merhaba! Hoş geldiniz, bugün size nasıl yardım edebilirim?",
+        "Merhabalar! Sizi görmek ne güzel, ne istemiştiniz?",
+        "Selam! Nasılsınız bugün? Size nasıl yardımcı olabilirim?",
+        "Merhaba! Buyurun, dinliyorum.",
+        "Selamlar! Size nasıl yardımcı olabilirim?",
+        "Hoş geldiniz! Sizinle sohbet etmek ne güzel!"
+      ],
+      "context": ""
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "görüşürüz", "hoşçakal", "bay bay", "güle güle",
+        "by bye", "çıkış", "çık", "quit", "exit",
+        "görüşür", "sonra görüşürüz"
+      ],
+      "responses": [
+        "Görüşmek üzere! İyi günler.",
+        "Hoşçakalın! Yine bekleriz.",
+        "Görüşürüz, iyi vakit geçirin!",
+        "Bay bay! Kendinize iyi bakın.",
+        "Görüşmek dileğiyle, hoşçakalın!",
+        "Tekrar bekleriz, iyi günler!"
+      ],
+      "context": ""
+    },
+    {
+      "tag": "how_are_you",
+      "patterns": [
+        "nasılsın", "naber", "neler yapıyorsun", "keyifler nasıl",
+        "iyi misin", "nasılsınız", "n'aber", "ne var ne yok",
+        "nslsn", "naber lan", "napıyorsun", "ne yapıyorsun"
+      ],
+      "responses": [
+        "Ben bir bilgisayar programıyım, benim için her şey yolunda! Siz nasılsınız?",
+        "Çok şükür kodlarım çalışıyor, ben iyiyim! Siz nasılsınız?",
+        "İyiyim, teşekkür ederim. Siz nasılsınız?",
+        "Ben hep iyiyim, işimi yapıyorum. Asıl siz nasılsınız?",
+        "Sağ olun, iyiyim. Sizi sormalı? Siz nasılsınız?",
+        "Havalar soğudu ama kodlar sıcak! Sizden naber?",
+        "İyi, iyi... Sizde naber?"
+      ],
+      "context": ""
+    },
+    {
+      "tag": "thanks",
+      "patterns": [
+        "teşekkürler", "sağ ol", "eyvallah", "thanks", 
+        "teşekkür ederim", "çok teşekkürler", "sağol",
+        "tşk", "thx", "thank you", "sağ olun"
+      ],
+      "responses": [
+        "Rica ederim! Başka bir isteğiniz var mı?",
+        "Ne demek, yardımcı olabildiysem ne mutlu!",
+        "Estağfurullah, her zaman! Başka bir şey?",
+        "Rica ederim, ne zaman isterseniz!",
+        "Önemli değil, görevimiz bu!",
+        "Sağ olun size de! Her zaman bekleriz."
+      ],
+      "context": ""
+    },
+    {
+      "tag": "time",
+      "patterns": [
+        "saat", "saat kaç", "time", "saati öğrenebilir miyim",
+        "acaba saat kaç", "şu an saat", "what time is it"
+      ],
+      "responses": [
+        "Şu an saat {time}",
+        "Saat şu anda {time}",
+        "Saat {time} gösteriyor",
+        "Bilgisayarınızın saati {time}"
+      ],
+      "context": "",
+      "function": "get_time"
+    },
+    {
+      "tag": "date",
+      "patterns": [
+        "tarih", "gün", "bugün günlerden ne", "date",
+        "bugün hangi gün", "bugünün tarihi", "tarih kaç",
+        "ayın kaçı", "hangi aydayız", "hangi yıldayız"
+      ],
+      "responses": [
+        "Bugün {date}",
+        "Bugünün tarihi {date}",
+        "{date}",
+        "Takvime göre bugün {date}"
+      ],
+      "context": "",
+      "function": "get_date"
+    },
+    {
+      "tag": "calendar",
+      "patterns": [
+        "takvim", "calendar", "bu ay", "ay takvimi",
+        "ayın kaç günü", "şu an hangi ay"
+      ],
+      "responses": [
+        "{calendar}",
+        "Takvim bilgisi: {calendar}"
+      ],
+      "context": "",
+      "function": "show_calendar"
+    },
+    {
+      "tag": "web_search",
+      "patterns": [
+        "ara", "google'da ara", "internette ara", "search",
+        "google", "internetten bak", "araştır", "bul"
+      ],
+      "responses": [
+        "🔍 '{query}' için Google arama sonuçları tarayıcınızda açıldı.",
+        "Google'da '{query}' aratıyorum... Tarayıcınız açılacak.",
+        "İnternette '{query}' araştırması başlatıldı.",
+        "'{query}' hakkında Google sonuçları hazır."
+      ],
+      "context": "",
+      "function": "search_web"
+    },
+    {
+      "tag": "wiki_search",
+      "patterns": [
+        "wikipedia'da ara", "vikipedi", "wiki", "wikipedia",
+        "vikipedi'de ara", "ansiklopedi"
+      ],
+      "responses": [
+        "{wiki_summary}",
+        "Wikipedia'dan aldığım bilgi: {wiki_summary}"
+      ],
+      "context": "",
+      "function": "search_wiki"
+    },
+    {
+      "tag": "name",
+      "patterns": [
+        "benim adım", "adım", "ismim", "ben ...",
+        "bana ... derler", "adımı sorarsan"
+      ],
+      "responses": [
+        "Merhaba {name}! Tanıştığımıza memnun oldum.",
+        "Hoş geldin {name}! Size nasıl yardımcı olabilirim?",
+        "{name}, harika bir isim! Sizinle tanışmak güzel.",
+        "Merhaba {name}! Bugün size nasıl yardım edebilirim?"
+      ],
+      "context": ""
+    },
+    {
+      "tag": "weather",
+      "patterns": [
+        "hava durumu", "hava nasıl", "weather", "sıcaklık",
+        "yağmur var mı", "hava soğuk mu"
+      ],
+      "responses": [
+        "Hava durumu özelliği için API anahtarı gerekiyor. Şimdilik 'tarih' veya 'saat' komutlarını deneyin.",
+        "Maalesef şu an hava durumuna bakamıyorum. Üzgünüm!",
+        "Hava durumu servisine erişimim yok. Ama saat ve tarihi söyleyebilirim."
+      ],
+      "context": ""
+    },
+    {
+      "tag": "joke",
+      "patterns": [
+        "fıkra anlat", "bir fıkra anlat", "şaka yap", "komik bir şey söyle",
+        "güldür beni", "joke", "espri"
+      ],
+      "responses": [
+        "Bir bilgisayarcı markete girmiş, kasaya 'Bellek var mı?' demiş. Kasadaki adam 'Ben senin ne dediğini anlamadım ama bilgisayar hafızası arıyorsan arkada raflarda' demiş. 😄",
+        "Temel bilgisayarının başında çalışıyormuş, birden ekran donmuş. 'Hayırdır inşallah' demiş, 'canım ne zaman isterse donarım' demiş bilgisayar.",
+        "Bir yazılımcıya sormuşlar: 'En sevdiğin yemek ne?' 'Spagetti, çünkü onu da döngüye sokabilirim' demiş. 🍝",
+        "Chatbot'lar neden kumar oynamaz? Çünkü 'ne yaparsan yap, sonunda kullanıcı kazanır' prensibine inanırlar!",
+        "Bilgisayarım bana 'Seni anlıyorum' dedi. Şok oldum! Meğer ekran koruyucuymuş."
+      ],
+      "context": ""
+    },
+    {
+      "tag": "advice",
+      "patterns": [
+        "tavsiye ver", "öneri", "ne yapmalıyım", "fikir ver",
+        "akıl ver", "sence ne yapayım"
+      ],
+      "responses": [
+        "💡 Her gün en az 30 dakika yürüyüş yapın!",
+        "📚 Günde 10 sayfa kitap okumak, yılda 3650 sayfa eder!",
+        "💧 Bol su içmeyi unutmayın!",
+        "😊 Gülümsemek bedava, ama değeri çok büyük!",
+        "🎯 Hedeflerinizi küçük adımlara bölün, başarmak daha kolay olur.",
+        "🌱 Her gün yeni bir şey öğrenmeye çalışın."
+      ],
+      "context": ""
+    },
+    {
+      "tag": "help",
+      "patterns": [
+        "yardım", "help", "ne yapabilirsin", "komutlar",
+        "neler yapabiliyorsun", "yeteneğin ne"
+      ],
+      "responses": [
+        "🤖 Ben şunları yapabilirim:\n• Sohbet edebilirim (merhaba, nasılsın, teşekkürler)\n• Saati söyleyebilirim\n• Tarihi söyleyebilirim\n• Google'da arama yapabilirim\n• Wikipedia'da arama yapabilirim\n• Fıkra anlatabilirim\n• Tavsiye verebilirim\n\nDenemek için: 'merhaba', 'saat kaç', 'yapay zeka ara', 'fıkra anlat'"
+      ],
+      "context": ""
+    },
+    {
+      "tag": "unknown",
+      "patterns": [],
+      "responses": [
+        "Anlayamadım. Lütfen 'yardım' yazarak neler yapabileceğimi öğrenin.",
+        "Ne demek istediğinizi tam anlayamadım. Daha açık yazar mısınız?",
+        "Bu soruya nasıl cevap vereceğimi bilmiyorum. 'Yardım' yazabilirsiniz.",
+        "Anlamadım. Belki 'merhaba', 'saat kaç' veya 'ara' gibi komutlar deneyebilirsiniz.",
+        "Kafam biraz karıştı. Lütfen tekrarlar mısınız?",
+        "Bunu anlayamadım. Size nasıl yardımcı olabilirim?"
+      ],
+      "context": ""
+    }
+  ]
+}
