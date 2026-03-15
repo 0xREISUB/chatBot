@@ -6,6 +6,7 @@ JSON tabanlı intent yönetimi
 import random
 import difflib
 from config import config
+from matematik import matematik_hesapla_zincir
 import functions
 
 # Renkli çıktı için
@@ -94,23 +95,37 @@ class MiniChatBot:
         
         # 4. Hiçbir şey bulunamadı
         return None, None, 0
-    
+
     def process_message(self, message):
         """
         Gelen mesajı işle ve cevap üret
         """
+        message_raw = message  # Orijinal halini sakla
         message = message.lower().strip()
         self.message_count += 1
-        
-        # Intent bul
+
+        # --- MATEMATİK ENTEGRASYONU BAŞLANGIÇ ---
+        # Önce mesajda matematiksel bir işlem var mı kontrol et
+        # "matematik_iceriyor_mu" kontrolü de ekleyebilirsin ama
+        # doğrudan hesaplamayı deneyip None dönüp dönmediğine bakmak daha pratiktir.
+        try:
+            matematik_sonucu = matematik_hesapla_zincir(message)
+            if matematik_sonucu is not None:
+                # Eğer bir sayı döndüyse, bu cevabı öncelikli kabul et
+                return f"İşleminin sonucu: {matematik_sonucu}"
+        except Exception as e:
+            # Hesaplama sırasında bir hata oluşursa sessizce devam et (loglayabilirsin)
+            if config.debug_mode:
+                self.print_colored(f"[Debug] Matematik hatası: {e}", "red")
+        # --- MATEMATİK ENTEGRASYONU BİTİŞ ---
+
+        # Intent bul (Eğer matematik değilse normal akış devam eder)
         intent, matched_pattern, score = self.find_intent(message)
-        
+
         if intent:
-            # Debug modunda benzerlik skorunu göster
             if config.debug_mode and matched_pattern != message:
                 self.print_colored(f"[Debug] '{message}' -> '{matched_pattern}' (benzerlik: {score:.2f})", "yellow")
-            
-            # Tag'e göre işlem yap
+
             response = self.generate_response(intent, message)
             return response
         else:
